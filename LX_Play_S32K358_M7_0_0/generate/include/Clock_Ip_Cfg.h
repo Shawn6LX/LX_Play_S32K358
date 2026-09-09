@@ -1,26 +1,47 @@
 /*==================================================================================================
-* Project : RTD AUTOSAR 4.9
-* Platform : CORTEXM
-* Peripheral : S32K3XX
-* Dependencies : none
+*   Project              : RTD AUTOSAR 4.9
+*   Platform             : CORTEXM
+*   Peripheral           : 
+*   Dependencies         : none
 *
-* Autosar Version : 4.9.0
-* Autosar Revision : ASR_REL_4_9_REV_0000
-* Autosar Conf.Variant :
-* SW Version : 7.0.0
-* Build Version : S32K3_RTD_7_0_0_QLP03_D2512_ASR_REL_4_9_REV_0000_20251210
+*   Autosar Version      : 4.9.0
+*   Autosar Revision     : ASR_REL_4_9_REV_0000
+*   Autosar Conf.Variant :
+*   SW Version           : 7.0.0
+*   Build Version        : S32K3_RTD_7_0_0_QLP03_D2512_ASR_REL_4_9_REV_0000_20251210
 *
-* Copyright 2020 - 2025 NXP
+*   Copyright 2020 - 2025 NXP
 *
-* NXP Confidential and Proprietary. This software is owned or controlled by NXP and may only be
-*   used strictly in accordance with the applicable license terms. By expressly
-*   accepting such terms or by downloading, installing, activating and/or otherwise
-*   using the software, you are agreeing that you have read, and that you agree to
-*   comply with and are bound by, such license terms. If you do not agree to be
+*   NXP Confidential and Proprietary. This software is owned or controlled by NXP and may only be 
+*   used strictly in accordance with the applicable license terms. By expressly 
+*   accepting such terms or by downloading, installing, activating and/or otherwise 
+*   using the software, you are agreeing that you have read, and that you agree to 
+*   comply with and are bound by, such license terms. If you do not agree to be 
 *   bound by the applicable license terms, then you may not retain, install,
 *   activate or otherwise use the software.
 ==================================================================================================*/
-
+/*==================================================================================================
+*   Project              : RTD AUTOSAR 4.9
+*   Platform             : CORTEXM
+*   Peripheral           : 
+*   Dependencies         : none
+*
+*   Autosar Version      : 4.9.0
+*   Autosar Revision     : ASR_REL_4_9_REV_0000
+*   Autosar Conf.Variant :
+*   SW Version           : 7.0.0
+*   Build Version        : S32K3_RTD_7_0_0_QLP03_D2512_ASR_REL_4_9_REV_0000_20251210
+*
+*   Copyright 2020 - 2025 NXP
+*
+*   NXP Confidential and Proprietary. This software is owned or controlled by NXP and may only be 
+*   used strictly in accordance with the applicable license terms.  By expressly 
+*   accepting such terms or by downloading, installing, activating and/or otherwise 
+*   using the software, you are agreeing that you have read, and that you agree to 
+*   comply with and are bound by, such license terms.  If you do not agree to be 
+*   bound by the applicable license terms, then you may not retain, install,
+*   activate or otherwise use the software.
+==================================================================================================*/
 /**
 *   @file       Clock_Ip_Cfg.h
 *   @version    7.0.0
@@ -48,8 +69,7 @@ extern "C"{
  2) needed interfaces from external units
  3) internal and external interfaces from this unit
 ==================================================================================================*/
-
-#include "Clock_Ip_Types.h"
+#include "Clock_Ip_PBcfg.h"
 
 /*==================================================================================================
 *                              SOURCE FILE VERSION INFORMATION
@@ -65,29 +85,26 @@ extern "C"{
 /*==================================================================================================
 *                                     FILE VERSION CHECKS
 ==================================================================================================*/
-#ifndef DISABLE_MCAL_INTERMODULE_ASR_CHECK
-/* Check if header file and Clock_Ip_Types.h file are of the same vendor */
-#if (CLOCK_IP_CFG_VENDOR_ID != CLOCK_IP_TYPES_VENDOR_ID)
-    #error "Clock_Ip_Cfg.h and Clock_Ip_Types.h have different vendor ids"
+/* Check if Clock_Ip_Cfg.h file and Clock_Ip_PBcfg.h file are of the same vendor */
+#if (CLOCK_IP_CFG_VENDOR_ID != CLOCK_IP_PBCFG_VENDOR_ID)
+    #error "Clock_Ip_Cfg.h and Clock_Ip_PBcfg.h have different vendor ids"
 #endif
 
-/* Check if header file and Clock_Ip_Types.h file are of the same Autosar version */
-#if ((CLOCK_IP_CFG_AR_RELEASE_MAJOR_VERSION != CLOCK_IP_TYPES_AR_RELEASE_MAJOR_VERSION) || \
-     (CLOCK_IP_CFG_AR_RELEASE_MINOR_VERSION != CLOCK_IP_TYPES_AR_RELEASE_MINOR_VERSION) || \
-     (CLOCK_IP_CFG_AR_RELEASE_REVISION_VERSION != CLOCK_IP_TYPES_AR_RELEASE_REVISION_VERSION) \
+/* Check if Clock_Ip_Cfg.h file and Clock_Ip_PBcfg.h file are of the same Autosar version */
+#if ((CLOCK_IP_CFG_AR_RELEASE_MAJOR_VERSION != CLOCK_IP_PBCFG_AR_RELEASE_MAJOR_VERSION) || \
+     (CLOCK_IP_CFG_AR_RELEASE_MINOR_VERSION != CLOCK_IP_PBCFG_AR_RELEASE_MINOR_VERSION) || \
+     (CLOCK_IP_CFG_AR_RELEASE_REVISION_VERSION != CLOCK_IP_PBCFG_AR_RELEASE_REVISION_VERSION) \
     )
-    #error "AutoSar Version Numbers of Clock_Ip_Cfg.h and Clock_Ip_Types.h are different"
+    #error "AutoSar Version Numbers of Clock_Ip_Cfg.h and Clock_Ip_PBcfg.h are different"
 #endif
 
-/* Check if header file and Clock_Ip_Types.h file are of the same Software version */
-#if ((CLOCK_IP_CFG_SW_MAJOR_VERSION != CLOCK_IP_TYPES_SW_MAJOR_VERSION) || \
-     (CLOCK_IP_CFG_SW_MINOR_VERSION != CLOCK_IP_TYPES_SW_MINOR_VERSION) || \
-     (CLOCK_IP_CFG_SW_PATCH_VERSION != CLOCK_IP_TYPES_SW_PATCH_VERSION) \
+/* Check if Clock_Ip_Cfg.h file and Clock_Ip_PBcfg.h file are of the same Software version */
+#if ((CLOCK_IP_CFG_SW_MAJOR_VERSION != CLOCK_IP_PBCFG_SW_MAJOR_VERSION) || \
+     (CLOCK_IP_CFG_SW_MINOR_VERSION != CLOCK_IP_PBCFG_SW_MINOR_VERSION) || \
+     (CLOCK_IP_CFG_SW_PATCH_VERSION != CLOCK_IP_PBCFG_SW_PATCH_VERSION) \
     )
-    #error "Software Version Numbers of Clock_Ip_Cfg.h and Clock_Ip_Types.h are different"
+  #error "Software Version Numbers of Clock_Ip_Cfg.h and Clock_Ip_PBcfg.h are different"
 #endif
-
-#endif    /* DISABLE_MCAL_INTERMODULE_ASR_CHECK */
 
 /*==================================================================================================
                                            DEFINES AND MACROS
@@ -130,7 +147,7 @@ typedef enum
     CLOCK_IP_RAM_MEMORY_CONFIG_EXIT_POINT       = 0x88U,
     CLOCK_IP_FLASH_MEMORY_CONFIG_ENTRY_POINT    = 0x89U,
     CLOCK_IP_FLASH_MEMORY_CONFIG_EXIT_POINT     = 0x90U
-
+ 
 } Clock_Ip_MemoryConfigStageType;
 #endif
 
@@ -146,21 +163,6 @@ typedef enum
 #include "Mcu_MemMap.h"
 
 #define MCU_STOP_SEC_CODE
-#include "Mcu_MemMap.h"
-
-
-#define MCU_START_SEC_CONFIG_DATA_UNSPECIFIED
-#include "Mcu_MemMap.h"
-
-
-/* *************************************************************************
- * Configuration structure for Clock Configuration
- * ************************************************************************* */
-
-extern const Clock_Ip_ClockConfigType Clock_Ip_aClockConfig[];
-
-
-#define MCU_STOP_SEC_CONFIG_DATA_UNSPECIFIED
 #include "Mcu_MemMap.h"
 
 #ifdef __cplusplus

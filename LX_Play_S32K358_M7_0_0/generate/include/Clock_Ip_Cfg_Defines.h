@@ -1,26 +1,47 @@
 /*==================================================================================================
-* Project : RTD AUTOSAR 4.9
-* Platform : CORTEXM
-* Peripheral : S32K3XX
-* Dependencies : none
+*   Project              : RTD AUTOSAR 4.9
+*   Platform             : CORTEXM
+*   Peripheral           : 
+*   Dependencies         : none
 *
-* Autosar Version : 4.9.0
-* Autosar Revision : ASR_REL_4_9_REV_0000
-* Autosar Conf.Variant :
-* SW Version : 7.0.0
-* Build Version : S32K3_RTD_7_0_0_QLP03_D2512_ASR_REL_4_9_REV_0000_20251210
+*   Autosar Version      : 4.9.0
+*   Autosar Revision     : ASR_REL_4_9_REV_0000
+*   Autosar Conf.Variant :
+*   SW Version           : 7.0.0
+*   Build Version        : S32K3_RTD_7_0_0_QLP03_D2512_ASR_REL_4_9_REV_0000_20251210
 *
-* Copyright 2020 - 2025 NXP
+*   Copyright 2020 - 2025 NXP
 *
-* NXP Confidential and Proprietary. This software is owned or controlled by NXP and may only be
-*   used strictly in accordance with the applicable license terms. By expressly
-*   accepting such terms or by downloading, installing, activating and/or otherwise
-*   using the software, you are agreeing that you have read, and that you agree to
-*   comply with and are bound by, such license terms. If you do not agree to be
+*   NXP Confidential and Proprietary. This software is owned or controlled by NXP and may only be 
+*   used strictly in accordance with the applicable license terms. By expressly 
+*   accepting such terms or by downloading, installing, activating and/or otherwise 
+*   using the software, you are agreeing that you have read, and that you agree to 
+*   comply with and are bound by, such license terms. If you do not agree to be 
 *   bound by the applicable license terms, then you may not retain, install,
 *   activate or otherwise use the software.
 ==================================================================================================*/
-
+/*==================================================================================================
+*   Project              : RTD AUTOSAR 4.9
+*   Platform             : CORTEXM
+*   Peripheral           : 
+*   Dependencies         : none
+*
+*   Autosar Version      : 4.9.0
+*   Autosar Revision     : ASR_REL_4_9_REV_0000
+*   Autosar Conf.Variant :
+*   SW Version           : 7.0.0
+*   Build Version        : S32K3_RTD_7_0_0_QLP03_D2512_ASR_REL_4_9_REV_0000_20251210
+*
+*   Copyright 2020 - 2025 NXP
+*
+*   NXP Confidential and Proprietary. This software is owned or controlled by NXP and may only be 
+*   used strictly in accordance with the applicable license terms.  By expressly 
+*   accepting such terms or by downloading, installing, activating and/or otherwise 
+*   using the software, you are agreeing that you have read, and that you agree to 
+*   comply with and are bound by, such license terms.  If you do not agree to be 
+*   bound by the applicable license terms, then you may not retain, install,
+*   activate or otherwise use the software.
+==================================================================================================*/
 /**
 *   @file       Clock_Ip_Cfg_Defines.h
 *   @version    7.0.0
@@ -145,19 +166,6 @@ extern "C"{
 * @brief             Max number of specific peripheral (eMIOS) units
 */
 #define CLOCK_IP_SPECIFIC_PERIPH_COUNT       (0U)
-
-/**
-* @brief            Number of clock configurations 0
-*/
-#define CLOCK_IP_CONFIGURED_IRCOSCS_0_NO       (3U)
-#define CLOCK_IP_CONFIGURED_XOSCS_0_NO       (2U)
-#define CLOCK_IP_CONFIGURED_PLLS_0_NO       (2U)
-#define CLOCK_IP_CONFIGURED_SELECTORS_0_NO       (15U)
-#define CLOCK_IP_CONFIGURED_DIVIDERS_0_NO       (27U)
-#define CLOCK_IP_CONFIGURED_DIVIDER_TRIGGERS_0_NO       (1U)
-#define CLOCK_IP_CONFIGURED_EXT_CLKS_0_NO       (2U)
-#define CLOCK_IP_CONFIGURED_GATES_0_NO       (112U)
-#define CLOCK_IP_CONFIGURED_CMUS_0_NO       (3U)
 
 /**
 * @brief            Supported power mode.
@@ -383,6 +391,9 @@ extern "C"{
 /**
 * @brief        Support for MultiPartition.
 */
+#define CLOCK_IP_MULTIPARTITION_SUPPORT                (STD_OFF)
+#define CLOCK_IP_PARTITION_0                   0U
+
 
 /*==================================================================================================
                                              ENUMS

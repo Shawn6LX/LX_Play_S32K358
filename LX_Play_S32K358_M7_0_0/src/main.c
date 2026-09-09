@@ -37,6 +37,24 @@ extern "C"{
 
 volatile int exit_code = 0;
 /* User includes */
+#include "system.h"
+#include "Siul2_Dio_Ip.h"
+#include "Siul2_Port_Ip.h"
+#include "OsIf.h"
+#include "OsIf_Timer_System.h"
+#include "Platform.h"
+#include "Mcu.h"
+
+
+void DelayMs(uint32 delayMs) {
+	uint32 cur = OsIf_GetCounter(OSIF_COUNTER_SYSTEM);
+	uint32 elapsed = 0U;
+	uint32 timeout = OsIf_MicrosToTicks(delayMs * 1000U, OSIF_COUNTER_SYSTEM);
+	while (elapsed < timeout) {
+		elapsed += OsIf_GetElapsed(&cur, OSIF_COUNTER_SYSTEM);
+	}
+}
+
 
 /*!
   \brief The main function for the project.
@@ -47,6 +65,48 @@ volatile int exit_code = 0;
 int main(void)
 {
     /* Write your code here */
+	/* Init clock */
+#if (STD_ON == MCU_PRECOMPILE_SUPPORT)
+    Mcu_Init(NULL_PTR);
+#else
+    Mcu_Init(&Mcu_Config);
+#endif
+
+#if (STD_ON == MCU_INIT_CLOCK)
+    /* Initialize the clock tree and apply PLL as system clock */
+    Mcu_InitClock(McuClockSettingConfig_0);
+
+ #if (STD_OFF == MCU_NO_PLL)
+    while (MCU_PLL_LOCKED != Mcu_GetPllStatus()) {
+        /* Busy wait until the System PLL is locked */
+    }
+    Mcu_DistributePllClock();
+ #endif
+
+    Mcu_SetMode(McuModeSettingConf_0);
+
+#else
+    #error "The Mcu Init Clock API should be enabled from the Mcu driver"
+#endif
+
+    /* Initialize Platform driver */
+    Platform_Init(NULL_PTR);
+
+    OsIf_Init(NULL_PTR);
+    OsIf_Timer_System_Init();
+
+    Siul2_Port_Ip_Init(
+    NUM_OF_CONFIGURED_PINS_PortContainer_0_BOARD_InitPeripherals,
+    g_pin_mux_InitConfigArr_PortContainer_0_BOARD_InitPeripherals);
+
+    while(true)
+    {
+        Siul2_Dio_Ip_WritePin(LED0_GREEN_PORT, LED0_GREEN_PIN, 0);
+        DelayMs(2000U);
+        Siul2_Dio_Ip_WritePin(LED0_GREEN_PORT, LED0_GREEN_PIN, 1);
+        DelayMs(2000U);
+    }
+
 
     for(;;)
     {

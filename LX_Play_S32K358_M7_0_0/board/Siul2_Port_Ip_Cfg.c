@@ -1,18 +1,18 @@
 /*==================================================================================================
-* Project : RTD AUTOSAR 4.9
-* Platform : CORTEXM
-* Peripheral : S32K3XX
-* Dependencies : none
+*   Project              : RTD AUTOSAR 4.9 
+*   Platform             : CORTEXM
+*   Peripheral           : SIUL2
+*   Dependencies         : none
 *
-* Autosar Version : 4.9.0
-* Autosar Revision : ASR_REL_4_9_REV_0000
-* Autosar Conf.Variant :
-* SW Version : 7.0.0
-* Build Version : S32K3_RTD_7_0_0_QLP03_D2512_ASR_REL_4_9_REV_0000_20251210
+*   Autosar Version      : 4.9.0
+*   Autosar Revision     : ASR_REL_4_9_REV_0000
+*   Autosar Conf.Variant :
+*   SW Version           : 7.0.0
+*   Build Version        : S32K3_S32M27x_Real-Time_Drivers_AUTOSAR_R23-11_Version_7_0_0_QLP03_D2512_ASR_REL_4_9_REV_0000_20251210
 *
-* Copyright 2020 - 2025 NXP
+*   Copyright 2020 - 2025 NXP
 *
-* NXP Confidential and Proprietary. This software is owned or controlled by NXP and may only be
+*   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
 *   accepting such terms or by downloading, installing, activating and/or otherwise
 *   using the software, you are agreeing that you have read, and that you agree to
@@ -102,14 +102,199 @@ extern "C"{
 
 /*
  * TEXT BELOW IS USED AS SETTING FOR TOOLS *************************************
-BOARD_InitPins:
+PortContainer_0_BOARD_InitPeripherals:
 - options: {callFromInitBoot: 'true', coreID: M7_0_0}
-- pin_list: []
+- pin_list:
+  - {pin_num: A11, peripheral: LPUART6, signal: lpuart6_rx, pin_signal: PTA15}
+  - {pin_num: A12, peripheral: LPUART6, signal: lpuart6_tx, pin_signal: PTA16, direction: OUTPUT}
+  - {pin_num: E8, peripheral: SIUL2, signal: 'gpio, 225', pin_signal: PTH1, direction: INPUT}
+  - {pin_num: E11, peripheral: SIUL2, signal: 'gpio, 227', pin_signal: PTH3, direction: INPUT}
+  - {pin_num: G5, peripheral: SIUL2, signal: 'gpio, 221', pin_signal: PTG29, identifier: LED0_RED, direction: OUTPUT}
+  - {pin_num: F5, peripheral: SIUL2, signal: 'gpio, 222', pin_signal: PTG30, identifier: LED0_GREEN, direction: OUTPUT}
+  - {pin_num: E6, peripheral: SIUL2, signal: 'gpio, 223', pin_signal: PTG31, identifier: LED0_BLUE, direction: OUTPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
 
-/*! @brief No pin was configured for this group or no need any configuration */
+#define PORT_START_SEC_CONFIG_DATA_UNSPECIFIED
+#include "Port_MemMap.h"
+
+/*! @brief Array of pin configuration structures */
+const Siul2_Port_Ip_PinSettingsConfig g_pin_mux_InitConfigArr_PortContainer_0_BOARD_InitPeripherals[NUM_OF_CONFIGURED_PINS_PortContainer_0_BOARD_InitPeripherals] =
+{
+    {
+        .base                        = IP_SIUL2,
+        .pinPortIdx                  = 15u,
+        .mux                         = PORT_MUX_AS_GPIO,
+        .safeMode                    = PORT_SAFE_MODE_DISABLED,
+        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
+        .driveStrength               = PORT_DRIVE_STRENTGTH_NOT_AVAILABLE,
+        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
+        .pullKeep                    = PORT_PULL_KEEP_DISABLED,
+        .invert                      = PORT_INVERT_DISABLED,
+        .inputBuffer                 = PORT_INPUT_BUFFER_ENABLED,
+        .outputBuffer                = PORT_OUTPUT_BUFFER_DISABLED,
+        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
+        .inputMuxReg                 = {
+                                         193u
+                                       },
+        .inputMux                    = { 
+                                         PORT_INPUT_MUX_ALT2,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT
+                                       },
+        .initValue                   = 2u
+    },
+    {
+        .base                        = IP_SIUL2,
+        .pinPortIdx                  = 16u,
+        .mux                         = PORT_MUX_ALT5,
+        .safeMode                    = PORT_SAFE_MODE_DISABLED,
+        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
+        .driveStrength               = PORT_DRIVE_STRENTGTH_NOT_AVAILABLE,
+        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
+        .pullKeep                    = PORT_PULL_KEEP_DISABLED,
+        .invert                      = PORT_INVERT_DISABLED,
+        .inputBuffer                 = PORT_INPUT_BUFFER_DISABLED,
+        .outputBuffer                = PORT_OUTPUT_BUFFER_ENABLED,
+        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
+        .initValue                   = 2u
+    },
+    {
+        .base                        = IP_SIUL2,
+        .pinPortIdx                  = 225u,
+        .mux                         = PORT_MUX_AS_GPIO,
+        .safeMode                    = PORT_SAFE_MODE_DISABLED,
+        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
+        .driveStrength               = PORT_DRIVE_STRENTGTH_DISABLED,
+        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
+        .pullKeep                    = PORT_PULL_KEEP_ENABLED,
+        .invert                      = PORT_INVERT_DISABLED,
+        .inputBuffer                 = PORT_INPUT_BUFFER_ENABLED,
+        .outputBuffer                = PORT_OUTPUT_BUFFER_DISABLED,
+        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
+        .inputMux                    = {
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT
+                                       },
+        .initValue                   = 0u
+    },
+    {
+        .base                        = IP_SIUL2,
+        .pinPortIdx                  = 227u,
+        .mux                         = PORT_MUX_AS_GPIO,
+        .safeMode                    = PORT_SAFE_MODE_DISABLED,
+        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
+        .driveStrength               = PORT_DRIVE_STRENTGTH_DISABLED,
+        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
+        .pullKeep                    = PORT_PULL_KEEP_ENABLED,
+        .invert                      = PORT_INVERT_DISABLED,
+        .inputBuffer                 = PORT_INPUT_BUFFER_ENABLED,
+        .outputBuffer                = PORT_OUTPUT_BUFFER_DISABLED,
+        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
+        .inputMux                    = {
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT,
+                                         PORT_INPUT_MUX_NO_INIT
+                                       },
+        .initValue                   = 0u
+    },
+    {
+        .base                        = IP_SIUL2,
+        .pinPortIdx                  = 221u,
+        .mux                         = PORT_MUX_AS_GPIO,
+        .safeMode                    = PORT_SAFE_MODE_DISABLED,
+        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
+        .driveStrength               = PORT_DRIVE_STRENTGTH_DISABLED,
+        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
+        .pullKeep                    = PORT_PULL_KEEP_ENABLED,
+        .invert                      = PORT_INVERT_DISABLED,
+        .inputBuffer                 = PORT_INPUT_BUFFER_DISABLED,
+        .outputBuffer                = PORT_OUTPUT_BUFFER_ENABLED,
+        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
+        .initValue                   = 0u
+    },
+    {
+        .base                        = IP_SIUL2,
+        .pinPortIdx                  = 222u,
+        .mux                         = PORT_MUX_AS_GPIO,
+        .safeMode                    = PORT_SAFE_MODE_DISABLED,
+        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
+        .driveStrength               = PORT_DRIVE_STRENTGTH_DISABLED,
+        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
+        .pullKeep                    = PORT_PULL_KEEP_ENABLED,
+        .invert                      = PORT_INVERT_DISABLED,
+        .inputBuffer                 = PORT_INPUT_BUFFER_DISABLED,
+        .outputBuffer                = PORT_OUTPUT_BUFFER_ENABLED,
+        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
+        .initValue                   = 0u
+    },
+    {
+        .base                        = IP_SIUL2,
+        .pinPortIdx                  = 223u,
+        .mux                         = PORT_MUX_AS_GPIO,
+        .safeMode                    = PORT_SAFE_MODE_DISABLED,
+        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
+        .driveStrength               = PORT_DRIVE_STRENTGTH_DISABLED,
+        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
+        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
+        .pullKeep                    = PORT_PULL_KEEP_ENABLED,
+        .invert                      = PORT_INVERT_DISABLED,
+        .inputBuffer                 = PORT_INPUT_BUFFER_DISABLED,
+        .outputBuffer                = PORT_OUTPUT_BUFFER_ENABLED,
+        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
+        .initValue                   = 0u
+    },
+};
+
+#define PORT_STOP_SEC_CONFIG_DATA_UNSPECIFIED
+#include "Port_MemMap.h"
 
 /*==================================================================================================
                                       LOCAL FUNCTION PROTOTYPES
@@ -129,4 +314,3 @@ BOARD_InitPins:
 #endif
 
 /** @} */
-

@@ -1,18 +1,18 @@
 /*==================================================================================================
-* Project : RTD AUTOSAR 4.9
-* Platform : CORTEXM
-* Peripheral : S32K3XX
-* Dependencies : none
+*   Project              : RTD AUTOSAR 4.9 
+*   Platform             : CORTEXM
+*   Peripheral           : SIUL2
+*   Dependencies         : none
 *
-* Autosar Version : 4.9.0
-* Autosar Revision : ASR_REL_4_9_REV_0000
-* Autosar Conf.Variant :
-* SW Version : 7.0.0
-* Build Version : S32K3_RTD_7_0_0_QLP03_D2512_ASR_REL_4_9_REV_0000_20251210
+*   Autosar Version      : 4.9.0
+*   Autosar Revision     : ASR_REL_4_9_REV_0000
+*   Autosar Conf.Variant :
+*   SW Version           : 7.0.0
+*   Build Version        : S32K3_S32M27x_Real-Time_Drivers_AUTOSAR_R23-11_Version_7_0_0_QLP03_D2512_ASR_REL_4_9_REV_0000_20251210
 *
-* Copyright 2020 - 2025 NXP
+*   Copyright 2020 - 2025 NXP
 *
-* NXP Confidential and Proprietary. This software is owned or controlled by NXP and may only be
+*   NXP Confidential. This software is owned or controlled by NXP and may only be
 *   used strictly in accordance with the applicable license terms. By expressly
 *   accepting such terms or by downloading, installing, activating and/or otherwise
 *   using the software, you are agreeing that you have read, and that you agree to
@@ -86,7 +86,6 @@ extern "C"{
 ==================================================================================================*/
 /* Pre-processor switch to enable/disable Touch Sense support */
 #define FEATURE_TSPC_PORT_IP_SUPPORT      (STD_ON)
-
 /*! @brief No pin was configured for this group or no need any configuration */
 
 /*==================================================================================================
