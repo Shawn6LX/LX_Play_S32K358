@@ -27,12 +27,16 @@ extern "C" {
 #include "OsIf_Timer_System.h"
 #include "Platform.h"
 #include "Mcu.h"
+#include "FreeRTOS.h"
+#include "task.h"
 /* ----- User Inclusions ----- */
 #include "sysctrl.h"
+#include "ostask.h"
 /*******************************************************************************
  * Macro Definitions
  ******************************************************************************/
-
+#define PEX_RTOS_INIT               OSTask_RTOS_Init
+#define PEX_RTOS_START              OSTask_RTOS_Startup
 /*******************************************************************************
  * Type Definitions
  ******************************************************************************/

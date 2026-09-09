@@ -48,20 +48,18 @@ volatile int exit_code = 0;
 */
 int main(void)
 {
+#ifdef PEX_RTOS_INIT
+    PEX_RTOS_INIT();
+#endif
     Sysctrl_Init();
 
     Siul2_Port_Ip_Init(
     NUM_OF_CONFIGURED_PINS_PortContainer_0_BOARD_InitPeripherals,
     g_pin_mux_InitConfigArr_PortContainer_0_BOARD_InitPeripherals);
 
-    while(true)
-    {
-        Siul2_Dio_Ip_WritePin(LED0_GREEN_PORT, LED0_GREEN_PIN, 0);
-        Sysctrl_DelayMs(2000U);
-        Siul2_Dio_Ip_WritePin(LED0_GREEN_PORT, LED0_GREEN_PIN, 1);
-        Sysctrl_DelayMs(2000U);
-    }
-
+#ifdef PEX_RTOS_START
+    PEX_RTOS_START();
+#endif
 
     for(;;)
     {
