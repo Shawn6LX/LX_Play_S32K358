@@ -37,6 +37,7 @@ extern "C"{
 
 volatile int exit_code = 0;
 /* User includes */
+#include "Global_Cfg.h"
 
 /*!
   \brief The main function for the project.
@@ -47,6 +48,17 @@ volatile int exit_code = 0;
 int main(void)
 {
     /* Write your code here */
+    Sysctrl_Init();
+
+    Siul2_Port_Ip_Init(
+    NUM_OF_CONFIGURED_PINS_PortContainer_0_BOARD_InitPeripherals,
+    g_pin_mux_InitConfigArr_PortContainer_0_BOARD_InitPeripherals);
+
+    while(true)
+    {
+        Sysctrl_DelayMs(3000U);
+        Siul2_Dio_Ip_TogglePins(LED1_BLUE_PORT, (1 << LED1_BLUE_PIN));
+    }
 
     for(;;)
     {

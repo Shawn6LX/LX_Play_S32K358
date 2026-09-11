@@ -98,7 +98,7 @@ extern "C"{
 /*! @brief Definitions for PortContainer_0_BOARD_InitPeripherals Functional Group */
 
 /*! @brief User number of configured pins */
-#define NUM_OF_CONFIGURED_PINS_PortContainer_0_BOARD_InitPeripherals 7
+#define NUM_OF_CONFIGURED_PINS_PortContainer_0_BOARD_InitPeripherals 6
 
 #define PORT_START_SEC_CONFIG_DATA_UNSPECIFIED
 #include "Port_MemMap.h"
@@ -116,8 +116,6 @@ extern const Siul2_Port_Ip_PinSettingsConfig g_pin_mux_InitConfigArr_PortContain
 #define UART6_TX_PORT           PTA_H_HALF
 #define SW2_PIN                 1u
 #define SW2_PORT                PTH_L_HALF
-#define SW3_PIN                 3u
-#define SW3_PORT                PTH_L_HALF
 #define LED0_RED_PIN            13u
 #define LED0_RED_PORT           PTG_H_HALF
 #define LED0_GREEN_PIN          14u

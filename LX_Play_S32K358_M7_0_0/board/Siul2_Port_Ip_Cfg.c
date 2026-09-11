@@ -108,7 +108,6 @@ PortContainer_0_BOARD_InitPeripherals:
   - {pin_num: A11, peripheral: LPUART6, signal: lpuart6_rx, pin_signal: PTA15}
   - {pin_num: A12, peripheral: LPUART6, signal: lpuart6_tx, pin_signal: PTA16, direction: OUTPUT}
   - {pin_num: E8, peripheral: SIUL2, signal: 'gpio, 225', pin_signal: PTH1, direction: INPUT}
-  - {pin_num: E11, peripheral: SIUL2, signal: 'gpio, 227', pin_signal: PTH3, direction: INPUT}
   - {pin_num: G5, peripheral: SIUL2, signal: 'gpio, 221', pin_signal: PTG29, identifier: LED0_RED, direction: OUTPUT}
   - {pin_num: F5, peripheral: SIUL2, signal: 'gpio, 222', pin_signal: PTG30, identifier: LED0_GREEN, direction: OUTPUT}
   - {pin_num: E6, peripheral: SIUL2, signal: 'gpio, 223', pin_signal: PTG31, identifier: LED0_BLUE, direction: OUTPUT}
@@ -178,40 +177,6 @@ const Siul2_Port_Ip_PinSettingsConfig g_pin_mux_InitConfigArr_PortContainer_0_BO
     {
         .base                        = IP_SIUL2,
         .pinPortIdx                  = 225u,
-        .mux                         = PORT_MUX_AS_GPIO,
-        .safeMode                    = PORT_SAFE_MODE_DISABLED,
-        .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
-        .driveStrength               = PORT_DRIVE_STRENTGTH_DISABLED,
-        .pullConfig                  = PORT_INTERNAL_PULL_NOT_ENABLED,
-        .slewRateCtrlSel             = PORT_SLEW_RATE_NOT_AVAILABLE,
-        .pullKeep                    = PORT_PULL_KEEP_ENABLED,
-        .invert                      = PORT_INVERT_DISABLED,
-        .inputBuffer                 = PORT_INPUT_BUFFER_ENABLED,
-        .outputBuffer                = PORT_OUTPUT_BUFFER_DISABLED,
-        .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
-        .inputMux                    = {
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT,
-                                         PORT_INPUT_MUX_NO_INIT
-                                       },
-        .initValue                   = 0u
-    },
-    {
-        .base                        = IP_SIUL2,
-        .pinPortIdx                  = 227u,
         .mux                         = PORT_MUX_AS_GPIO,
         .safeMode                    = PORT_SAFE_MODE_DISABLED,
         .inputFilter                 = PORT_INPUT_FILTER_NOT_AVAILABLE,
