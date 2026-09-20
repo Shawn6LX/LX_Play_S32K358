@@ -121,7 +121,7 @@ static const IntCtrl_Ip_IrqConfigType aIrqConfiguration[] = {
     {PMC_IRQn, (boolean)FALSE, 0U, &undefined_handler},
     {SIUL_0_IRQn, (boolean)FALSE, 0U, &undefined_handler},
     {SIUL_1_IRQn, (boolean)FALSE, 0U, &undefined_handler},
-    {SIUL_2_IRQn, (boolean)FALSE, 0U, &undefined_handler},
+    {SIUL_2_IRQn, (boolean)TRUE, 4U, &Siul2_IRQ2_Handler},
     {SIUL_3_IRQn, (boolean)FALSE, 0U, &undefined_handler},
     {EMIOS0_0_IRQn, (boolean)FALSE, 0U, &undefined_handler},
     {EMIOS0_1_IRQn, (boolean)FALSE, 0U, &undefined_handler},

@@ -107,7 +107,7 @@ PortContainer_0_BOARD_InitPeripherals:
 - pin_list:
   - {pin_num: A11, peripheral: LPUART6, signal: lpuart6_rx, pin_signal: PTA15}
   - {pin_num: A12, peripheral: LPUART6, signal: lpuart6_tx, pin_signal: PTA16, direction: OUTPUT}
-  - {pin_num: E8, peripheral: SIUL2, signal: 'gpio, 225', pin_signal: PTH1, direction: INPUT}
+  - {pin_num: E8, peripheral: SIUL2, signal: 'eirq, 17', pin_signal: PTH1}
   - {pin_num: G5, peripheral: SIUL2, signal: 'gpio, 221', pin_signal: PTG29, identifier: LED0_RED, direction: OUTPUT}
   - {pin_num: F5, peripheral: SIUL2, signal: 'gpio, 222', pin_signal: PTG30, identifier: LED0_GREEN, direction: OUTPUT}
   - {pin_num: E6, peripheral: SIUL2, signal: 'gpio, 223', pin_signal: PTG31, identifier: LED0_BLUE, direction: OUTPUT}
@@ -188,8 +188,11 @@ const Siul2_Port_Ip_PinSettingsConfig g_pin_mux_InitConfigArr_PortContainer_0_BO
         .inputBuffer                 = PORT_INPUT_BUFFER_ENABLED,
         .outputBuffer                = PORT_OUTPUT_BUFFER_DISABLED,
         .adcInterleaves              = { MUX_MODE_NOT_AVAILABLE, MUX_MODE_NOT_AVAILABLE },
-        .inputMux                    = {
-                                         PORT_INPUT_MUX_NO_INIT,
+        .inputMuxReg                 = {
+                                         33u
+                                       },
+        .inputMux                    = { 
+                                         PORT_INPUT_MUX_ALT5,
                                          PORT_INPUT_MUX_NO_INIT,
                                          PORT_INPUT_MUX_NO_INIT,
                                          PORT_INPUT_MUX_NO_INIT,
@@ -206,7 +209,7 @@ const Siul2_Port_Ip_PinSettingsConfig g_pin_mux_InitConfigArr_PortContainer_0_BO
                                          PORT_INPUT_MUX_NO_INIT,
                                          PORT_INPUT_MUX_NO_INIT
                                        },
-        .initValue                   = 0u
+        .initValue                   = 2u
     },
     {
         .base                        = IP_SIUL2,

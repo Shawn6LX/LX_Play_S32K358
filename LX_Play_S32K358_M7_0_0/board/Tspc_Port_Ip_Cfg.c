@@ -107,7 +107,7 @@ PortContainer_0_BOARD_InitPeripherals:
 - pin_list:
   - {pin_num: A11, peripheral: LPUART6, signal: lpuart6_rx, pin_signal: PTA15}
   - {pin_num: A12, peripheral: LPUART6, signal: lpuart6_tx, pin_signal: PTA16, direction: OUTPUT}
-  - {pin_num: E8, peripheral: SIUL2, signal: 'gpio, 225', pin_signal: PTH1, direction: INPUT}
+  - {pin_num: E8, peripheral: SIUL2, signal: 'eirq, 17', pin_signal: PTH1}
   - {pin_num: G5, peripheral: SIUL2, signal: 'gpio, 221', pin_signal: PTG29, identifier: LED0_RED, direction: OUTPUT}
   - {pin_num: F5, peripheral: SIUL2, signal: 'gpio, 222', pin_signal: PTG30, identifier: LED0_GREEN, direction: OUTPUT}
   - {pin_num: E6, peripheral: SIUL2, signal: 'gpio, 223', pin_signal: PTG31, identifier: LED0_BLUE, direction: OUTPUT}

@@ -67,11 +67,7 @@
                         <pin_feature name="direction" value="OUTPUT"/>
                      </pin_features>
                   </pin>
-                  <pin peripheral="SIUL2" signal="gpio, 225" pin_num="E8" pin_signal="PTH1">
-                     <pin_features>
-                        <pin_feature name="direction" value="INPUT"/>
-                     </pin_features>
-                  </pin>
+                  <pin peripheral="SIUL2" signal="eirq, 17" pin_num="E8" pin_signal="PTH1"/>
                   <pin peripheral="SIUL2" signal="gpio, 221" pin_num="G5" pin_signal="PTG29">
                      <pin_features>
                         <pin_feature name="identifier" value="LED0_RED"/>
@@ -462,9 +458,14 @@
                   <data type="Version">1.0.0</data>
                </feature>
             </dependency>
-            <dependency resourceType="Tool" resourceId="Clocks" description="外围设备工具需要 Clocks 工具，但它已被禁用。" problem_level="2" source="Peripherals">
+            <dependency resourceType="SWComponent" resourceId="platform.driver.siul2_icu" description="工具链/IDE工程中未找到Siul2_Icu。工程不会被编译！" problem_level="2" source="Peripherals">
                <feature name="enabled" evaluation="equal">
-                  <data>true</data>
+                  <data type="Boolean">true</data>
+               </feature>
+            </dependency>
+            <dependency resourceType="SWComponent" resourceId="platform.driver.siul2_icu" description="工具链/IDE工程不支持Siul2_Icu版本。所需值: ${required_value}, 实际值: ${actual_value}. 工程可能没有被正确编译。" problem_level="1" source="Peripherals">
+               <feature name="version" evaluation="equivalent">
+                  <data type="Version">1.0.0</data>
                </feature>
             </dependency>
          </dependencies>
@@ -498,6 +499,9 @@
             <file path="generate/include/Ram_Ip_Cfg_Defines.h" update_enabled="true"/>
             <file path="generate/include/Ram_Ip_PBcfg.h" update_enabled="true"/>
             <file path="generate/include/Siul2_Dio_Ip_Cfg.h" update_enabled="true"/>
+            <file path="generate/include/Siul2_Icu_Ip_Cfg.h" update_enabled="true"/>
+            <file path="generate/include/Siul2_Icu_Ip_Defines.h" update_enabled="true"/>
+            <file path="generate/include/Siul2_Icu_Ip_SA_PBcfg.h" update_enabled="true"/>
             <file path="generate/include/Siul2_Port_Ip_Defines.h" update_enabled="true"/>
             <file path="generate/include/Soc_Ips.h" update_enabled="true"/>
             <file path="generate/include/System_Ip_Cfg.h" update_enabled="true"/>
@@ -517,6 +521,7 @@
             <file path="generate/src/Power_Ip_PBcfg.c" update_enabled="true"/>
             <file path="generate/src/Ram_Ip_Cfg.c" update_enabled="true"/>
             <file path="generate/src/Ram_Ip_PBcfg.c" update_enabled="true"/>
+            <file path="generate/src/Siul2_Icu_Ip_SA_PBcfg.c" update_enabled="true"/>
          </generated_project_files>
          <peripherals_profile>
             <processor_version>0.0.0</processor_version>
@@ -2434,9 +2439,9 @@
                                  <struct name="53">
                                     <setting name="Name" value="PlatformIsrConfig_53"/>
                                     <setting name="IsrName" value="SIUL_2_IRQn"/>
-                                    <setting name="IsrEnabled" value="false"/>
-                                    <setting name="IsrPriority" value="0"/>
-                                    <setting name="IsrHandler" value="undefined_handler"/>
+                                    <setting name="IsrEnabled" value="true"/>
+                                    <setting name="IsrPriority" value="4"/>
+                                    <setting name="IsrHandler" value="Siul2_IRQ2_Handler"/>
                                  </struct>
                                  <struct name="54">
                                     <setting name="Name" value="PlatformIsrConfig_54"/>
@@ -3416,6 +3421,64 @@
                         </struct>
                         <struct name="us_tab">
                            <setting name="configUSER_SETTINGS" value=""/>
+                        </struct>
+                     </config_set>
+                  </instance>
+                  <instance name="Siul2_Icu" uuid="e6d3bbd5-d017-4b05-a71a-2c8dab3916f9" type="Siul2_Icu" type_id="Siul2_Icu" mode="ip" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                     <config_set name="Siul2_Icu">
+                        <setting name="Name" value="Siul2_Icu"/>
+                        <struct name="ConfigTimeSupport">
+                           <setting name="POST_BUILD_VARIANT_USED" value="false"/>
+                           <setting name="IMPLEMENTATION_CONFIG_VARIANT" value="VARIANT-POST-BUILD"/>
+                        </struct>
+                        <struct name="IcuConfigSet">
+                           <setting name="Name" value="Siul2ConfigSet"/>
+                           <setting name="IcuMaxChannel" value="1"/>
+                           <array name="IcuChannel">
+                              <struct name="0">
+                                 <setting name="Name" value="IcuChannel_0"/>
+                                 <setting name="IcuChannelId" value="0"/>
+                                 <setting name="IcuChannelRef" value="/Siul2_Icu/Siul2_Icu/Siul2ConfigSet/IcuSiul2_0/IcuSiul2Channels_0"/>
+                                 <setting name="IcuDefaultStartEdge" value="ICU_RISING_EDGE"/>
+                                 <setting name="IcuMeasurementMode" value="ICU_MODE_SIGNAL_EDGE_DETECT"/>
+                                 <setting name="IcuOverflowNotification" value="NULL_PTR"/>
+                                 <array name="IcuSignalEdgeDetection">
+                                    <struct name="0">
+                                       <setting name="Name" value="IcuSignalEdgeDetection"/>
+                                       <array name="IcuSignalNotification"/>
+                                    </struct>
+                                 </array>
+                                 <array name="IcuSignalMeasurement"/>
+                                 <array name="IcuTimestampMeasurement"/>
+                              </struct>
+                           </array>
+                           <array name="IcuSiul2">
+                              <struct name="0">
+                                 <setting name="Name" value="IcuSiul2_0"/>
+                                 <setting name="IcuSiul2Instance" value="0"/>
+                                 <setting name="IcuEXT_ISR_InterruptFilterClockPrescaler" value="0"/>
+                                 <setting name="IcuEXT_ISR_AlternateInterruptFilterClockPrescaler" value="0"/>
+                                 <array name="IcuSiul2Channels">
+                                    <struct name="0">
+                                       <setting name="Name" value="IcuSiul2Channels_0"/>
+                                       <setting name="IcuSiul2Channel" value="17"/>
+                                       <setting name="Icu_EXT_ISR_IFERDigitalFilter" value="true"/>
+                                       <setting name="Icu_EXT_ISR_IFMCDigitalFilter" value="8"/>
+                                    </struct>
+                                 </array>
+                              </struct>
+                           </array>
+                           <array name="IcuHwInterruptConfigList">
+                              <struct name="0">
+                                 <setting name="Name" value="IcuHwInterruptConfigList_0"/>
+                                 <setting name="IcuIsrHwId" value="SIUL2_0_IRQ_CH_17"/>
+                              </struct>
+                           </array>
+                        </struct>
+                        <struct name="IcuGeneral">
+                           <setting name="Name" value="Siul2IcuGeneral"/>
+                           <setting name="IcuDevErrorDetect" value="false"/>
+                           <setting name="IcuEnableUserModeSupport" value="false"/>
                         </struct>
                      </config_set>
                   </instance>
