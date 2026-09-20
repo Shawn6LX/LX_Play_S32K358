@@ -23,6 +23,7 @@ extern "C" {
 /* ----- RTD Inclusions ----- */
 #include "Siul2_Dio_Ip.h"
 #include "Siul2_Port_Ip.h"
+#include "Siul2_Icu_Ip.h"
 #include "OsIf.h"
 #include "OsIf_Timer_System.h"
 #include "Platform.h"

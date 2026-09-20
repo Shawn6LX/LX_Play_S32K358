@@ -92,6 +92,22 @@ static void Sysctrl_Timer_Init(void)
     OsIf_Timer_System_Init();
 }
 
+/*!
+ * @brief       Initialize Icu Drivers.
+ * @details     The system timer is from OsIf.
+ *
+ * @param[in]   void
+ * @param[out]  void
+ * 
+ * @return      void
+ */
+static void Sysctrl_Icu_Init(void)
+{
+    Siul2_Icu_Ip_Init(0U, &Siul2_Icu_Ip_0_Config_PB);
+    Siul2_Icu_Ip_EnableInterrupt(0U, 17U);
+    Siul2_Icu_Ip_EnableNotification(0U, 17U);
+}
+
 /*==================================================================================================
 *                                        GLOBAL FUNCTIONS
 ==================================================================================================*/
@@ -130,6 +146,8 @@ void Sysctrl_Init(void)
     Platform_Init(NULL_PTR);
 
     Sysctrl_Timer_Init();
+
+    Sysctrl_Icu_Init();
 }
 
 /*==================================================================================================

@@ -468,6 +468,11 @@
                   <data type="Version">1.0.0</data>
                </feature>
             </dependency>
+            <dependency resourceType="Tool" resourceId="Clocks" description="外围设备工具需要 Clocks 工具，但它已被禁用。" problem_level="2" source="Peripherals">
+               <feature name="enabled" evaluation="equal">
+                  <data>true</data>
+               </feature>
+            </dependency>
          </dependencies>
          <generated_project_files>
             <file path="generate/include/Clock_Ip_Cfg.h" update_enabled="true"/>
@@ -2441,7 +2446,7 @@
                                     <setting name="IsrName" value="SIUL_2_IRQn"/>
                                     <setting name="IsrEnabled" value="true"/>
                                     <setting name="IsrPriority" value="4"/>
-                                    <setting name="IsrHandler" value="Siul2_IRQ2_Handler"/>
+                                    <setting name="IsrHandler" value="SIUL2_EXT_IRQ_16_23_ISR"/>
                                  </struct>
                                  <struct name="54">
                                     <setting name="Name" value="PlatformIsrConfig_54"/>
@@ -3445,7 +3450,9 @@
                                  <array name="IcuSignalEdgeDetection">
                                     <struct name="0">
                                        <setting name="Name" value="IcuSignalEdgeDetection"/>
-                                       <array name="IcuSignalNotification"/>
+                                       <array name="IcuSignalNotification">
+                                          <setting name="0" value="Icu_Eirq17_Callback"/>
+                                       </array>
                                     </struct>
                                  </array>
                                  <array name="IcuSignalMeasurement"/>

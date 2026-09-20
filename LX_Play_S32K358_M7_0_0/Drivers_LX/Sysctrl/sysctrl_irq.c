@@ -33,7 +33,7 @@ extern "C"{
 /*==================================================================================================
 *                                 LOCAL CONSTANTS OR VARIABLES
 ==================================================================================================*/
-
+static uint8_t testCode = 0;
 /*==================================================================================================
 *                                 GLOBAL CONSTANTS OR VARIABLES
 ==================================================================================================*/
@@ -46,17 +46,18 @@ extern "C"{
 *                                        GLOBAL FUNCTIONS
 ==================================================================================================*/
 /*!
- * @brief       Initialize MCU Drivers.
- * @details     The function focus on the sequence of MCU Init.
+ * @brief       Callback for External Interrupt 17 from Icu module.
+ * @details     This function is called from below sequence:
+ *              IntCtrl_Ip_IrqHandler --> Siul2_Icu_Ip_Irq --> SIUL2_EXT_IRQ_16_23_ISR
  *
  * @param[in]   void
  * @param[out]  void
  * 
  * @return      void
  */
-void Siul2_IRQ2_Handler(void)
+void Icu_Eirq17_Callback(void)
 {
-
+    testCode = 1U;
 }
 
 /*==================================================================================================

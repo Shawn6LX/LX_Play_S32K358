@@ -105,6 +105,7 @@ extern "C"{
 #if (STD_ON == SIUL2_ICU_IP_USED)
 #define ICU_START_SEC_CODE
 #include "Icu_MemMap.h"
+extern void Icu_Eirq17_Callback(void);
 #define ICU_STOP_SEC_CODE
 #include "Icu_MemMap.h"
 /*==================================================================================================
@@ -130,7 +131,7 @@ const Siul2_Icu_Ip_ChannelConfigType Siul2_Icu_Ip_0_ChannelConfig_PB[1U] =
         /** @brief Callback Pointer */
         NULL_PTR,
         /** @brief Notification function */
-        NULL_PTR,
+        &Icu_Eirq17_Callback,
           /** @brief Callback Param1*/
           17U
     }
