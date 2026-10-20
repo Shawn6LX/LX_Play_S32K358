@@ -33,7 +33,7 @@ extern "C"{
 /*==================================================================================================
 *                                 LOCAL CONSTANTS OR VARIABLES
 ==================================================================================================*/
-static uint8_t testCode = 0;
+static uint8_t Flag_SW2_Trggr = SYSCTRL_STATE_OFF;
 /*==================================================================================================
 *                                 GLOBAL CONSTANTS OR VARIABLES
 ==================================================================================================*/
@@ -55,9 +55,32 @@ static uint8_t testCode = 0;
  * 
  * @return      void
  */
+boolean Sysctrl_Is_SW2_Triggered(void)
+{
+    boolean retVal = FALSE;
+
+    if(Flag_SW2_Trggr == SYSCTRL_STATE_ON)
+    {
+        retVal = TRUE;
+        Flag_SW2_Trggr = SYSCTRL_STATE_OFF;
+    }
+
+    return retVal;
+}
+
+/*!
+ * @brief       Callback for External Interrupt 17 from Icu module.
+ * @details     This function is called from below sequence:
+ *              IntCtrl_Ip_IrqHandler --> Siul2_Icu_Ip_Irq --> SIUL2_EXT_IRQ_16_23_ISR
+ *
+ * @param[in]   void
+ * @param[out]  void
+ * 
+ * @return      void
+ */
 void Icu_Eirq17_Callback(void)
 {
-    testCode = 1U;
+    Flag_SW2_Trggr = SYSCTRL_STATE_ON;
 }
 
 /*==================================================================================================
