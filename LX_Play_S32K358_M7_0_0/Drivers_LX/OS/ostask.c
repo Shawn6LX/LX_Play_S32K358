@@ -68,6 +68,8 @@ static void OSTask_500ms(void *pvParameters)
     {
         /* It shall be PIN_Mask for the 2nd parm of TogglePins. */
         Siul2_Dio_Ip_TogglePins(LED0_GREEN_PORT, (1 << LED0_GREEN_PIN));
+        // Siul2_Dio_Ip_WritePin(LED0_GREEN_PORT, LED0_GREEN_PIN, 1U);
+
         vTaskDelay(MTASK_DELAY_500_MS);
     }
 }
