@@ -103,9 +103,13 @@ static void Sysctrl_Timer_Init(void)
  */
 static void Sysctrl_Icu_Init(void)
 {
+#if (CONFIG_USE_MCAL == STD_ON)
+    Icu_Init(NULL_PTR);
+#else
     Siul2_Icu_Ip_Init(0U, &Siul2_Icu_Ip_0_Config_PB);
     Siul2_Icu_Ip_EnableInterrupt(0U, 17U);
     Siul2_Icu_Ip_EnableNotification(0U, 17U);
+#endif
 }
 
 /*==================================================================================================
@@ -144,6 +148,8 @@ void Sysctrl_Init(void)
     Sysctrl_MCU_Init();
     /* Initialize Platform Settings */
     Platform_Init(NULL_PTR);
+
+    Port_Init(NULL_PTR);
 
     Sysctrl_Timer_Init();
 
