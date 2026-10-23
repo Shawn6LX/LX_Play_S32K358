@@ -53,10 +53,6 @@ int main(void)
 #endif
     Sysctrl_Init();
 
-    Siul2_Port_Ip_Init(
-    NUM_OF_CONFIGURED_PINS_PortContainer_0_BOARD_InitPeripherals,
-    g_pin_mux_InitConfigArr_PortContainer_0_BOARD_InitPeripherals);
-
 #ifdef PEX_RTOS_START
     PEX_RTOS_START();
 #endif

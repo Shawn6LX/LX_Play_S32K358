@@ -21,13 +21,13 @@ extern "C" {
  * Included Files
  ******************************************************************************/
 /* ----- RTD Inclusions ----- */
-#include "Siul2_Dio_Ip.h"
-#include "Siul2_Port_Ip.h"
-#include "Siul2_Icu_Ip.h"
+#include "Mcu.h"
+#include "Platform.h"
 #include "OsIf.h"
 #include "OsIf_Timer_System.h"
-#include "Platform.h"
-#include "Mcu.h"
+#include "Port.h"
+#include "Dio.h"
+#include "Icu.h"
 #include "FreeRTOS.h"
 #include "task.h"
 /* ----- User Inclusions ----- */
@@ -38,6 +38,8 @@ extern "C" {
  ******************************************************************************/
 #define PEX_RTOS_INIT               OSTask_RTOS_Init
 #define PEX_RTOS_START              OSTask_RTOS_Startup
+
+#define CONFIG_USE_MCAL             STD_ON
 /*******************************************************************************
  * Type Definitions
  ******************************************************************************/

@@ -92,21 +92,20 @@ extern "C"{
 #define SIUL2_ICU_IP_NUM_OF_CHANNELS_USED       ((uint8)1U)
 
 /** @brief Adds or removes all services related to the de-initialization functionality. */
-#define SIUL2_ICU_IP_DEINIT_API                 (STD_ON)
+#define SIUL2_ICU_IP_DEINIT_API                 (STD_OFF)
 
 /** @brief Adds or removes all services related to dual clock edge functionality. */
-#define SIUL2_ICU_IP_DUAL_CLOCK_MODE_API        (STD_ON)
+#define SIUL2_ICU_IP_DUAL_CLOCK_MODE_API        (STD_OFF)
 
 /** @brief Add or remove all functions related to input state. */
-#define SIUL2_ICU_IP_GET_INPUT_STATE_API        (STD_ON)
+#define SIUL2_ICU_IP_GET_INPUT_STATE_API        (STD_OFF)
 
 /** @brief Define if global variables need to be placed in non-cache area or not */
 #define SIUL2_ICU_IP_NO_CACHE_USED              (STD_OFF)
 
 /** @brief Add or remove VirtWrapper support */
 #define SIUL2_ICU_IP_VIRTWRAPPER_SUPPORT        (STD_OFF)
-
-        /** @brief Support for User mode. If this parameter has been configured to STD_ON, the Siul2 driver
+/** @brief Support for User mode. If this parameter has been configured to STD_ON, the Siul2 driver
  *         code can be executed from both supervisor and user mode. */
 #define SIUL2_ICU_IP_ENABLE_USER_MODE_SUPPORT   (STD_OFF)
 

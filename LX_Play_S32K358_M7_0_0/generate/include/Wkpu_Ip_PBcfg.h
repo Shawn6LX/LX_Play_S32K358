@@ -21,61 +21,63 @@
 *   activate or otherwise use the software.
 ==================================================================================================*/
 
-#ifndef SIUL2_ICU_IP_SA_PBCFG_H
-#define SIUL2_ICU_IP_SA_PBCFG_H
+#ifndef WKPU_IP_PBCFG_H
+#define WKPU_IP_PBCFG_H
 
 /**
- *   @file    Siul2_Icu_Ip_SA_PBcfg.h
+ *   @file    Wkpu_Ip_PBcfg.h
  *   @version 7.0.0
  *
  *   @brief   AUTOSAR Icu - contains the data exported by the Icu module
  *   @details Contains the information that will be exported by the module, as requested by Autosar.
  *
- *   @addtogroup siul2_icu_ip SIUL2 IPL
+ *   @addtogroup wkpu_icu_ip WKPU IPL
  *   @{
  */
- 
+
 #ifdef __cplusplus
 extern "C"{
 #endif
 
- /*==================================================================================================
- *                                         INCLUDE FILES
- * 1) system and project includes
- * 2) needed interfaces from external units
- * 3) internal and external interfaces from this unit
- *================================================================================================*/
-#include "Siul2_Icu_Ip_Types.h"
+/*==================================================================================================
+*                                          INCLUDE FILES
+*  1) system and project includes
+*  2) needed interfaces from external units
+*  3) internal and external interfaces from this unit
+==================================================================================================*/
+#include "Wkpu_Ip_Types.h"
 
 /*==================================================================================================
  *                              SOURCE FILE VERSION INFORMATION
  *================================================================================================*/
-#define SIUL2_ICU_IP_SA_PBCFG_VENDOR_ID                     43
-#define SIUL2_ICU_IP_SA_PBCFG_AR_RELEASE_MAJOR_VERSION      4
-#define SIUL2_ICU_IP_SA_PBCFG_AR_RELEASE_MINOR_VERSION      9
-#define SIUL2_ICU_IP_SA_PBCFG_AR_RELEASE_REVISION_VERSION   0
-#define SIUL2_ICU_IP_SA_PBCFG_SW_MAJOR_VERSION              7
-#define SIUL2_ICU_IP_SA_PBCFG_SW_MINOR_VERSION              0
-#define SIUL2_ICU_IP_SA_PBCFG_SW_PATCH_VERSION              0
+#define WKPU_IP_PBCFG_VENDOR_ID                     43
+#define WKPU_IP_PBCFG_AR_RELEASE_MAJOR_VERSION      4
+#define WKPU_IP_PBCFG_AR_RELEASE_MINOR_VERSION      9
+#define WKPU_IP_PBCFG_AR_RELEASE_REVISION_VERSION   0
+#define WKPU_IP_PBCFG_SW_MAJOR_VERSION              7
+#define WKPU_IP_PBCFG_SW_MINOR_VERSION              0
+#define WKPU_IP_PBCFG_SW_PATCH_VERSION              0
 
 /*==================================================================================================
  *                                      FILE VERSION CHECKS
  *================================================================================================*/
 /* Check if source file and ICU header file are of the same vendor */
-#if (SIUL2_ICU_IP_SA_PBCFG_VENDOR_ID != SIUL2_ICU_IP_TYPES_VENDOR_ID)
-    #error "Siul2_Icu_Ip_SA_PBcfg.h and Siul2_Icu_Ip_Types.h have different vendor IDs"
+#if (WKPU_IP_PBCFG_VENDOR_ID != WKPU_IP_TYPES_VENDOR_ID)
+    #error "Wkpu_Ip_PBcfg.h and Wkpu_Ip_Types.h have different vendor IDs"
 #endif
+
 /* Check if source file and ICU header file are of the same AutoSar version */
-#if ((SIUL2_ICU_IP_SA_PBCFG_AR_RELEASE_MAJOR_VERSION    != SIUL2_ICU_IP_TYPES_AR_RELEASE_MAJOR_VERSION) || \
-     (SIUL2_ICU_IP_SA_PBCFG_AR_RELEASE_MINOR_VERSION    != SIUL2_ICU_IP_TYPES_AR_RELEASE_MINOR_VERSION) || \
-     (SIUL2_ICU_IP_SA_PBCFG_AR_RELEASE_REVISION_VERSION != SIUL2_ICU_IP_TYPES_AR_RELEASE_REVISION_VERSION))
-    #error "AutoSar Version Numbers of Siul2_Icu_Ip_SA_PBcfg.h and Siul2_Icu_Ip_Types.h are different"
+#if ((WKPU_IP_PBCFG_AR_RELEASE_MAJOR_VERSION != WKPU_IP_TYPES_AR_RELEASE_MAJOR_VERSION) || \
+     (WKPU_IP_PBCFG_AR_RELEASE_MINOR_VERSION != WKPU_IP_TYPES_AR_RELEASE_MINOR_VERSION) || \
+     (WKPU_IP_PBCFG_AR_RELEASE_REVISION_VERSION != WKPU_IP_TYPES_AR_RELEASE_REVISION_VERSION))
+    #error "AutoSar Version Numbers of Wkpu_Ip_PBcfg.h and Wkpu_Ip_Types.h are different"
 #endif
+
 /* Check if source file and ICU header file are of the same Software version */
-#if ((SIUL2_ICU_IP_SA_PBCFG_SW_MAJOR_VERSION != SIUL2_ICU_IP_TYPES_SW_MAJOR_VERSION) || \
-     (SIUL2_ICU_IP_SA_PBCFG_SW_MINOR_VERSION != SIUL2_ICU_IP_TYPES_SW_MINOR_VERSION) || \
-     (SIUL2_ICU_IP_SA_PBCFG_SW_PATCH_VERSION != SIUL2_ICU_IP_TYPES_SW_PATCH_VERSION))
-    #error "Software Version Numbers of Siul2_Icu_Ip_SA_PBcfg.h and Siul2_Icu_Ip_Types.h are different"
+#if ((WKPU_IP_PBCFG_SW_MAJOR_VERSION != WKPU_IP_TYPES_SW_MAJOR_VERSION) || \
+     (WKPU_IP_PBCFG_SW_MINOR_VERSION != WKPU_IP_TYPES_SW_MINOR_VERSION) || \
+     (WKPU_IP_PBCFG_SW_PATCH_VERSION != WKPU_IP_TYPES_SW_PATCH_VERSION))
+    #error "Software Version Numbers of Wkpu_Ip_PBcfg.h and Wkpu_Ip_Types.h are different"
 #endif
 
 /*==================================================================================================
@@ -85,13 +87,9 @@ extern "C"{
 /*==================================================================================================
 *                                  GLOBAL VARIABLE DECLARATIONS
 ==================================================================================================*/
-#if (STD_ON == SIUL2_ICU_IP_USED)
+#if (STD_ON == WKPU_IP_USED)
 
-#define SIUL2_ICU_CONFIG_SA_PB \
-        extern const Siul2_Icu_Ip_ChannelConfigType Siul2_Icu_Ip_0_ChannelConfig_PB[1U]; \
-        extern const Siul2_Icu_Ip_ConfigType Siul2_Icu_Ip_0_Config_PB; \
-
-#endif /* SIUL2_ICU_IP_USED */
+#endif /* WKPU_IP_USED */
 
 #ifdef __cplusplus
 }
@@ -99,5 +97,5 @@ extern "C"{
 
 /** @} */
 
-#endif /* SIUL2_ICU_IP_SA_PBCFG_H */
+#endif /* WKPU_IP_PBCFG_H */
 

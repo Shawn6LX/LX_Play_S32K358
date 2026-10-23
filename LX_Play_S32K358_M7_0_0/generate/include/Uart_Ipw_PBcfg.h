@@ -22,22 +22,20 @@
 ==================================================================================================*/
 
 
-#ifndef LPUART_UART_IP_SA_PBCFG_H
-#define LPUART_UART_IP_SA_PBCFG_H
+#ifndef UART_IPW_PBCFG_H
+#define UART_IPW_PBCFG_H
 
 
 /**
-*   @file Lpuart_Uart_Ip_PBcfg.h
-*   @defgroup lpuart_uart_ip Lpuart UART IPL
-*   @addtogroup  lpuart_uart_ip Lpuart UART IPL
+*   @file
+*   @internal
+*   @addtogroup UART_IPW_DRIVER
 *   @{
 */
-
 
 #ifdef __cplusplus
 extern "C"{
 #endif
-
 
 /*==================================================================================================
                                          INCLUDE FILES
@@ -45,39 +43,45 @@ extern "C"{
  2) needed interfaces from external units
  3) internal and external interfaces from this unit
 ==================================================================================================*/
-#include "Lpuart_Uart_Ip_Types.h"
+#include "Uart_Ipw_Types.h"
 
 /*==================================================================================================
 *                              SOURCE FILE VERSION INFORMATION
 ==================================================================================================*/
-#define LPUART_UART_IP_SA_PBCFG_VENDOR_ID                     43
-#define LPUART_UART_IP_SA_PBCFG_AR_RELEASE_MAJOR_VERSION      4
-#define LPUART_UART_IP_SA_PBCFG_AR_RELEASE_MINOR_VERSION      9
-#define LPUART_UART_IP_SA_PBCFG_AR_RELEASE_REVISION_VERSION   0
-#define LPUART_UART_IP_SA_PBCFG_SW_MAJOR_VERSION              7
-#define LPUART_UART_IP_SA_PBCFG_SW_MINOR_VERSION              0
-#define LPUART_UART_IP_SA_PBCFG_SW_PATCH_VERSION              0
+#define UART_IPW_PBCFG_VENDOR_ID                     43
+#define UART_IPW_PBCFG_AR_RELEASE_MAJOR_VERSION      4
+#define UART_IPW_PBCFG_AR_RELEASE_MINOR_VERSION      9
+#define UART_IPW_PBCFG_AR_RELEASE_REVISION_VERSION   0
+#define UART_IPW_PBCFG_SW_MAJOR_VERSION              7
+#define UART_IPW_PBCFG_SW_MINOR_VERSION              0
+#define UART_IPW_PBCFG_SW_PATCH_VERSION              0
 
 
 /*==================================================================================================
                                       FILE VERSION CHECKS
 ==================================================================================================*/
-/* Checks against Lpuart_Uart_Ip_Types.h */
-#if (LPUART_UART_IP_SA_PBCFG_VENDOR_ID != LPUART_UART_IP_TYPES_VENDOR_ID)
-    #error "Lpuart_Uart_Ip_Sa_PBCfg.h and Lpuart_Uart_Ip_Types.h have different vendor ids"
+
+/* Checks against Uart_Ipw_Types.h */
+#if (UART_IPW_PBCFG_VENDOR_ID != UART_IPW_TYPES_VENDOR_ID)
+    #error "Uart_Ipw_PBcfg.h and Uart_Ipw_Types.h have different vendor ids"
 #endif
-#if ((LPUART_UART_IP_SA_PBCFG_AR_RELEASE_MAJOR_VERSION   != LPUART_UART_IP_TYPES_AR_RELEASE_MAJOR_VERSION)|| \
-     (LPUART_UART_IP_SA_PBCFG_AR_RELEASE_MINOR_VERSION   != LPUART_UART_IP_TYPES_AR_RELEASE_MINOR_VERSION)|| \
-     (LPUART_UART_IP_SA_PBCFG_AR_RELEASE_REVISION_VERSION!= LPUART_UART_IP_TYPES_AR_RELEASE_REVISION_VERSION) \
+#if ((UART_IPW_PBCFG_AR_RELEASE_MAJOR_VERSION    != UART_IPW_TYPES_AR_RELEASE_MAJOR_VERSION) || \
+     (UART_IPW_PBCFG_AR_RELEASE_MINOR_VERSION    != UART_IPW_TYPES_AR_RELEASE_MINOR_VERSION) || \
+     (UART_IPW_PBCFG_AR_RELEASE_REVISION_VERSION != UART_IPW_TYPES_AR_RELEASE_REVISION_VERSION) \
     )
-    #error "AUTOSAR Version Numbers of Lpuart_Uart_Ip_Sa_PBCfg.h and Lpuart_Uart_Ip_Types.h are different"
+    #error "AUTOSAR Version Numbers of Uart_Ipw_PBcfg.h and Uart_Ipw_Types.h are different"
 #endif
-#if ((LPUART_UART_IP_SA_PBCFG_SW_MAJOR_VERSION!= LPUART_UART_IP_TYPES_SW_MAJOR_VERSION)|| \
-     (LPUART_UART_IP_SA_PBCFG_SW_MINOR_VERSION!= LPUART_UART_IP_TYPES_SW_MINOR_VERSION)|| \
-     (LPUART_UART_IP_SA_PBCFG_SW_PATCH_VERSION!= LPUART_UART_IP_TYPES_SW_PATCH_VERSION) \
+/* Check if current file and Uart_Ipw_Types.h header file are of the same Software version */
+#if ((UART_IPW_PBCFG_SW_MAJOR_VERSION != UART_IPW_TYPES_SW_MAJOR_VERSION) || \
+     (UART_IPW_PBCFG_SW_MINOR_VERSION != UART_IPW_TYPES_SW_MINOR_VERSION) || \
+     (UART_IPW_PBCFG_SW_PATCH_VERSION != UART_IPW_TYPES_SW_PATCH_VERSION) \
     )
-    #error "Software Version Numbers of Lpuart_Uart_Ip_Sa_PBCfg.h and Lpuart_Uart_Ip_Types.h are different"
+    #error "Software Version Numbers of Uart_Ipw_PBcfg.h and Uart_Ipw_Types.h are different"
 #endif
+
+/*==================================================================================================
+*                                       FILE VERSION CHECKS
+==================================================================================================*/
 
 /*==================================================================================================
 *                                            CONSTANTS
@@ -87,17 +91,6 @@ extern "C"{
 *                                       DEFINES AND MACROS
 ==================================================================================================*/
 
-/**
-* @brief          Link Uart channels symbolic names with Uart hardware channel IDs.
-* @details        Link Uart channels symbolic names with Uart hardware channel IDs.
-*
-* @api
-*/
-
-#ifndef LPUART_UART_IP_INSTANCE_USING_6
-    #define LPUART_UART_IP_INSTANCE_USING_6   6U
-#endif
-
 /*==================================================================================================
 *                                              ENUMS
 ==================================================================================================*/
@@ -105,6 +98,13 @@ extern "C"{
 /*==================================================================================================
 *                                  STRUCTURES AND OTHER TYPEDEFS
 ==================================================================================================*/
+
+#define UART_IPW_CONFIG_PB \
+extern const Uart_Ipw_HwConfigType Uart_Ipw_xHwConfigPB_0;
+
+#ifndef UART_IPW_LPUART_HW_USING
+    #define UART_IPW_LPUART_HW_USING
+#endif
 
 /*==================================================================================================
 *                                  GLOBAL VARIABLE DECLARATIONS
@@ -114,17 +114,9 @@ extern "C"{
 *                                       FUNCTION PROTOTYPES
 ==================================================================================================*/
 
-/**
-* @brief    Declare callback functions if any .
-*/
-#define LPUART_UART_IP_SA_CONFIG_PB \
-extern const Lpuart_Uart_Ip_UserConfigType Lpuart_Uart_Ip_xHwConfigPB_6;
-
 #ifdef __cplusplus
 }
 #endif
-
 /** @} */
-
-#endif /* LPUART_UART_IP_SA_PBCFG_H */
+#endif /* UART_IPW_PBCFG_H */
 

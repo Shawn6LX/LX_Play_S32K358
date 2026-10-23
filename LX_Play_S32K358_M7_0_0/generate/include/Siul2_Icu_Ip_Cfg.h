@@ -46,7 +46,7 @@ extern "C"{
  * 3) internal and external interfaces from this unit
  *================================================================================================*/
 #include "Std_Types.h"
-#include "Siul2_Icu_Ip_SA_PBcfg.h"
+#include "Siul2_Icu_Ip_PBcfg.h"
 /*==================================================================================================
  *                              SOURCE FILE VERSION INFORMATION
  *================================================================================================*/
@@ -69,21 +69,21 @@ extern "C"{
     #endif
 #endif
 
-/* Check if header file and Siul2_Icu_Ip_SA_PBcfg.h file are of the same vendor */
-#if (SIUL2_ICU_IP_CFG_VENDOR_ID != SIUL2_ICU_IP_SA_PBCFG_VENDOR_ID)
-    #error "Siul2_Icu_Ip_Cfg.h and Siul2_Icu_Ip_SA_PBcfg.h have different vendor IDs"
+/* Check if header file and Siul2_Icu_Ip_PBcfg.h file are of the same vendor */
+#if (SIUL2_ICU_IP_CFG_VENDOR_ID != SIUL2_ICU_IP_PBCFG_VENDOR_ID)
+    #error "Siul2_Icu_Ip_Cfg.h and Siul2_Icu_Ip_PBcfg.h have different vendor IDs"
 #endif
-/* Check if header file and Siul2_Icu_Ip_SA_PBcfg.h file are of the same Autosar version */
-#if ((SIUL2_ICU_IP_CFG_AR_RELEASE_MAJOR_VERSION != SIUL2_ICU_IP_SA_PBCFG_AR_RELEASE_MAJOR_VERSION) || \
-     (SIUL2_ICU_IP_CFG_AR_RELEASE_MINOR_VERSION != SIUL2_ICU_IP_SA_PBCFG_AR_RELEASE_MINOR_VERSION) || \
-     (SIUL2_ICU_IP_CFG_AR_RELEASE_REVISION_VERSION != SIUL2_ICU_IP_SA_PBCFG_AR_RELEASE_REVISION_VERSION))
-    #error "AutoSar Version Numbers of Siul2_Icu_Ip_Cfg.h and Siul2_Icu_Ip_SA_PBcfg.h are different"
+/* Check if header file and Siul2_Icu_Ip_PBcfg.h file are of the same Autosar version */
+#if ((SIUL2_ICU_IP_CFG_AR_RELEASE_MAJOR_VERSION != SIUL2_ICU_IP_PBCFG_AR_RELEASE_MAJOR_VERSION) || \
+     (SIUL2_ICU_IP_CFG_AR_RELEASE_MINOR_VERSION != SIUL2_ICU_IP_PBCFG_AR_RELEASE_MINOR_VERSION) || \
+     (SIUL2_ICU_IP_CFG_AR_RELEASE_REVISION_VERSION != SIUL2_ICU_IP_PBCFG_AR_RELEASE_REVISION_VERSION))
+    #error "AutoSar Version Numbers of Siul2_Icu_Ip_Cfg.h and Siul2_Icu_Ip_PBcfg.h are different"
 #endif
-/* Check if header file and Siul2_Icu_Ip_SA_PBcfg.h file are of the same Software version */
-#if ((SIUL2_ICU_IP_CFG_SW_MAJOR_VERSION != SIUL2_ICU_IP_SA_PBCFG_SW_MAJOR_VERSION) || \
-     (SIUL2_ICU_IP_CFG_SW_MINOR_VERSION != SIUL2_ICU_IP_SA_PBCFG_SW_MINOR_VERSION) || \
-     (SIUL2_ICU_IP_CFG_SW_PATCH_VERSION != SIUL2_ICU_IP_SA_PBCFG_SW_PATCH_VERSION))
-    #error "Software Version Numbers of Siul2_Icu_Ip_Cfg.h and Siul2_Icu_Ip_SA_PBcfg.h are different"
+/* Check if header file and Siul2_Icu_Ip_PBcfg.h file are of the same Software version */
+#if ((SIUL2_ICU_IP_CFG_SW_MAJOR_VERSION != SIUL2_ICU_IP_PBCFG_SW_MAJOR_VERSION) || \
+     (SIUL2_ICU_IP_CFG_SW_MINOR_VERSION != SIUL2_ICU_IP_PBCFG_SW_MINOR_VERSION) || \
+     (SIUL2_ICU_IP_CFG_SW_PATCH_VERSION != SIUL2_ICU_IP_PBCFG_SW_PATCH_VERSION))
+    #error "Software Version Numbers of Siul2_Icu_Ip_Cfg.h and Siul2_Icu_Ip_PBcfg.h are different"
 #endif
 /*==================================================================================================
                                        DEFINES AND MACROS
@@ -95,7 +95,7 @@ extern "C"{
 
 /* Export SIUL2 configuration. */
 #define SIUL2_ICU_CONFIG_EXT \
-        SIUL2_ICU_CONFIG_SA_PB
+        SIUL2_ICU_CONFIG_PB
 
 #endif /* SIUL2_ICU_IP_USED */
 
