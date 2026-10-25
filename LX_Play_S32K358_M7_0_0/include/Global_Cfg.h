@@ -30,9 +30,11 @@ extern "C" {
 #include "Icu.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "CDD_Uart.h"
 /* ----- User Inclusions ----- */
 #include "sysctrl.h"
 #include "ostask.h"
+#include "uart.h"
 /*******************************************************************************
  * Macro Definitions
  ******************************************************************************/

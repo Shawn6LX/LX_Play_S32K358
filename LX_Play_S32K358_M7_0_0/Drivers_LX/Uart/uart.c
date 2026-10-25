@@ -14,6 +14,7 @@
 /*******************************************************************************
  * Included Files
  ******************************************************************************/
+#include <string.h>
 #include "uart.h"
 /*******************************************************************************
  * Internal Macro Definitions
@@ -40,24 +41,22 @@ static uint8_t Flag_Lpuart6_Rx = UART_FLG_RX_NOT_RECEIVED;
  * @details     This callback only supports fixed-length reception mode; 
  *              It can't support variable-length frame.
  *
- * @param[in]   driverState: Pointer to LPUART driver internal state handle (Unused)
- * @param[in]   event: UART event flag, including RX_FULL, END_TRANSFER...
- * @param[in]   userData: User private parameter pointer passed in (Unused)
+ * @param[in]   HwInstance: LPUART Hardware driver Instance.
+ * @param[in]   Event: UART event flag, including RX_FULL, END_TRANSFER...
  * @param[out]  void
  */
-static void LPUART_Rx_Callback(void *driverState, uart_event_t event, void *userData)
+void LPUART_Rx_Callback(uint8 HwInstance, Uart_EventType Event)
 {
-    (void)driverState;
-    (void)userData;
+    (void)HwInstance;
 
-    if (event == UART_EVENT_RX_FULL) 
+    if (Event == UART_EVENT_RX_FULL) 
     {
         // Handle received data.
     }
-    else if (event == UART_EVENT_END_TRANSFER) 
+    else if ((Event == UART_EVENT_END_TRANSFER) || (Event == UART_EVENT_ERROR))
     {
         /* Re-Start receving channel. */
-        LPUART_DRV_ReceiveData(INST_LPUART1, lpuart6_Rx_Buffer, UART_RX_MAX_LEN);
+        (void)Uart_AsyncReceive(UART_CHANNEL_6, &lpuart6_Rx_Buffer[0], 1U);
     }
 }
 
@@ -72,13 +71,12 @@ static void LPUART_Rx_Callback(void *driverState, uart_event_t event, void *user
  */
 void UART_Init(void)
 {
+    /* Init Uart in Mcal. */
+    Uart_Init(NULL_PTR);
     /* Init for UART1 */
     memset(lpuart6_Rx_Buffer, 0, UART_RX_MAX_LEN);
-    /* Init for LPUART6 */
-    Lpuart_Uart_Ip_Init(LPUART_INSTANCE, &Lpuart_Uart_Ip_xHwConfigPB_6);
-    // LPUART_DRV_InstallRxCallback(INST_LPUART1, LPUART_Rx_Callback, NULL);
-    /* Enable Channel to receive data. */
-    LPUART_DRV_ReceiveData(INST_LPUART1, lpuart6_Rx_Buffer, UART_RX_MAX_LEN);
+    /* Start receive data in specific Channel. */
+    (void)Uart_AsyncReceive(UART_CHANNEL_6, &lpuart6_Rx_Buffer[0], 1U);
 }
 
 
@@ -89,7 +87,7 @@ void UART_Init(void)
  */
 void UART_Rx_Data_Handler(uint32_t instance)
 {
-    if(INST_LPUART1 == instance)
+    if(UART_CHANNEL_6 == instance)
     {
         Flag_Lpuart6_Rx = UART_FLG_RX_RECEIVED;
     }
@@ -105,7 +103,7 @@ void UART_MainFunction(void)
     if(UART_FLG_RX_RECEIVED == Flag_Lpuart6_Rx)
     {
         Flag_Lpuart6_Rx = UART_FLG_RX_NOT_RECEIVED;
-        OLED_ShowString(5, 15, lpuart6_Rx_Buffer, 8, 0);
+        // OLED_ShowString(5, 15, lpuart6_Rx_Buffer, 8, 0);
     }
 }
 

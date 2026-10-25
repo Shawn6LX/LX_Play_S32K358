@@ -186,7 +186,7 @@ static const IntCtrl_Ip_IrqConfigType aIrqConfiguration[] = {
     {LPUART3_IRQn, (boolean)FALSE, 0U, &undefined_handler},
     {LPUART4_IRQn, (boolean)FALSE, 0U, &undefined_handler},
     {LPUART5_IRQn, (boolean)FALSE, 0U, &undefined_handler},
-    {LPUART6_IRQn, (boolean)FALSE, 0U, &undefined_handler},
+    {LPUART6_IRQn, (boolean)TRUE, 5U, &LPUART_UART_IP_6_IRQHandler},
     {LPUART7_IRQn, (boolean)FALSE, 0U, &undefined_handler},
     {LPUART8_IRQn, (boolean)FALSE, 0U, &undefined_handler},
     {LPUART9_IRQn, (boolean)FALSE, 0U, &undefined_handler},

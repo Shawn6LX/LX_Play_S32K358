@@ -21,11 +21,14 @@ extern "C" {
  * Included Files
  ******************************************************************************/
 #include <stdio.h>
-#include"Cpu.h"
+#include "Global_Cfg.h"
 /*******************************************************************************
  * Macro Definitions
  ******************************************************************************/
+#define UART_CHANNEL_6                  ((uint8_t)0U)
+
 #define UART_RX_MAX_LEN                 ((uint8_t)64U)
+
 #define UART_FLG_RX_NOT_RECEIVED        ((uint8_t)0U)
 #define UART_FLG_RX_RECEIVED            ((uint8_t)1U)
 /*******************************************************************************
