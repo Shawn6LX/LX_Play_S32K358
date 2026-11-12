@@ -468,11 +468,6 @@
                   <data type="Version">1.0.0</data>
                </feature>
             </dependency>
-            <dependency resourceType="Tool" resourceId="Clocks" description="外围设备工具需要 Clocks 工具，但它已被禁用。" problem_level="2" source="Peripherals">
-               <feature name="enabled" evaluation="equal">
-                  <data>true</data>
-               </feature>
-            </dependency>
          </dependencies>
          <generated_project_files>
             <file path="board/Siul2_Port_Ip_Cfg.c" update_enabled="true"/>
@@ -1057,6 +1052,10 @@
                                     <struct name="0">
                                        <setting name="Name" value="McuClockReferencePoint_0"/>
                                        <setting name="McuClockFrequencySelect" value="CORE_CLK"/>
+                                    </struct>
+                                    <struct name="1">
+                                       <setting name="Name" value="McuClock_Lpuart6"/>
+                                       <setting name="McuClockFrequencySelect" value="AIPS_SLOW_CLK"/>
                                     </struct>
                                  </array>
                               </struct>
@@ -3327,7 +3326,7 @@
                                  <setting name="Name" value="UartChannel_6"/>
                                  <setting name="UartHwUsing" value="LPUART_IP"/>
                                  <setting name="UartChannelId" value="0"/>
-                                 <setting name="UartClockRef" value="/Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig_0/McuClockReferencePoint_0"/>
+                                 <setting name="UartClockRef" value="/Mcu/Mcu/McuModuleConfiguration/McuClockSettingConfig_0/McuClock_Lpuart6"/>
                                  <array name="UartChannelEcucPartitionRef"/>
                                  <struct name="DetailModuleConfiguration">
                                     <setting name="Name" value="DetailModuleConfiguration"/>
@@ -3342,7 +3341,7 @@
                                     <setting name="UartStopBitNumber" value="LPUART_UART_IP_ONE_STOP_BIT"/>
                                     <setting name="UartWordLength" value="LPUART_UART_IP_8_BITS_PER_CHAR"/>
                                     <setting name="UartInternalLoopbackEnable" value="false"/>
-                                    <setting name="UartTimeoutEnable" value="false"/>
+                                    <setting name="UartTimeoutEnable" value="true"/>
                                  </struct>
                                  <struct name="FlexioModuleConfiguration">
                                     <setting name="Name" value="FlexioModuleConfiguration"/>

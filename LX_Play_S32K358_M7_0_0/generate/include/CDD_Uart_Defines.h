@@ -88,7 +88,7 @@ extern "C"{
 
 
 /* @brief Uart has timeout interrupt enable. */
-#define UART_HAS_TIMEOUT_INTERRUPT_ENABLED      (STD_OFF)
+#define UART_HAS_TIMEOUT_INTERRUPT_ENABLED      (STD_ON)
 
 /* @brief Declare callback parameters if any */
 #define UART_CALLBACK_DECLARED                  (STD_ON)

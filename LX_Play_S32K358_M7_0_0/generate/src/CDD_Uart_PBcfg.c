@@ -175,7 +175,7 @@ static const Uart_ChannelConfigType Uart_ChannelConfig_0 =
 #if (UART_MULTIPARTITION_SUPPORT == STD_ON)
     (uint32)UART_PARTITION_ID, /* Uart Channel Partition ID */
 #endif
-    (uint32)160000000U, /* Clock frequency */
+    (uint32)40000000U, /* Clock frequency */
     &Uart_Ipw_xHwConfigPB_0  /* Pointer to the hardware configuration */
 };
 
