@@ -11,14 +11,8 @@ static void OSTask_10ms(void *pvParameters)
     (void)pvParameters;
     while(1)
     {
-        // if(Key_Is_Pressed(KEY_1_INDEX))
-        // {
-        //     LED_Set_Light(LED_PORT_YELLOW, LED_LIGHT_ON);
-        // }
-        // else
-        // {
-        //     LED_Set_Light(LED_PORT_YELLOW, LED_LIGHT_OFF);
-        // }
+        UART_MainFunction();
+
         vTaskDelay(MTASK_DELAY_10_MS);
     }
 }
