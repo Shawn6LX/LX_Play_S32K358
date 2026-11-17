@@ -266,7 +266,7 @@ extern "C" {
 /** 
 * @brief This constant used for other modules to check if MCL is present in the project.   
 */
-#define USE_MCL_MODULE              (STD_OFF)
+#define USE_MCL_MODULE              (STD_ON)
 
 /** 
 * @brief This constant used for other modules to check if MCU is present in the project.   
@@ -336,7 +336,7 @@ extern "C" {
 /** 
 * @brief This constant used for other modules to check if RM is present in the project.   
 */
-#define USE_RM_MODULE               (STD_OFF)
+#define USE_RM_MODULE               (STD_ON)
 
 /** 
 * @brief This constant used for other modules to check if SENT is present in the project.   

@@ -252,7 +252,7 @@ static const Power_Ip_MC_ME_CofbConfigType Power_Ip_MC_ME_aPartition1CofbConfigP
         /* The clock enable register value of the COFB set. */
         MC_ME_PRTN1_COFB0_CLKEN
         (
-            ((uint32)0x00000000U) | MC_ME_PRTN1_COFB0_CLKEN_REQ21_MASK | MC_ME_PRTN1_COFB0_CLKEN_REQ24_MASK | MC_ME_PRTN1_COFB0_CLKEN_REQ28_MASK
+            ((uint32)0x00000000U) | MC_ME_PRTN1_COFB0_CLKEN_REQ3_MASK | MC_ME_PRTN1_COFB0_CLKEN_REQ21_MASK | MC_ME_PRTN1_COFB0_CLKEN_REQ24_MASK | MC_ME_PRTN1_COFB0_CLKEN_REQ28_MASK
         ),
 
         /* Mask containing the COFB blocks to be updated. */
@@ -270,7 +270,7 @@ static const Power_Ip_MC_ME_CofbConfigType Power_Ip_MC_ME_aPartition1CofbConfigP
         /* The clock enable register value of the COFB set. */
         MC_ME_PRTN1_COFB1_CLKEN
         (
-            ((uint32)0x00000000U) | MC_ME_PRTN1_COFB1_CLKEN_REQ34_MASK | MC_ME_PRTN1_COFB1_CLKEN_REQ45_MASK | MC_ME_PRTN1_COFB1_CLKEN_REQ49_MASK | MC_ME_PRTN1_COFB1_CLKEN_REQ51_MASK | MC_ME_PRTN1_COFB1_CLKEN_REQ53_MASK
+            ((uint32)0x00000000U) | MC_ME_PRTN1_COFB1_CLKEN_REQ33_MASK | MC_ME_PRTN1_COFB1_CLKEN_REQ34_MASK | MC_ME_PRTN1_COFB1_CLKEN_REQ45_MASK | MC_ME_PRTN1_COFB1_CLKEN_REQ49_MASK | MC_ME_PRTN1_COFB1_CLKEN_REQ51_MASK | MC_ME_PRTN1_COFB1_CLKEN_REQ53_MASK
         ),
 
         /* Mask containing the COFB blocks to be updated. */
@@ -328,7 +328,7 @@ static const Power_Ip_MC_ME_CofbConfigType Power_Ip_MC_ME_aPartition2CofbConfigP
         /* The clock enable register value of the COFB set. */
         MC_ME_PRTN2_COFB0_CLKEN
         (
-            ((uint32)0x00000000U)
+            ((uint32)0x00000000U) | MC_ME_PRTN2_COFB0_CLKEN_REQ8_MASK | MC_ME_PRTN2_COFB0_CLKEN_REQ9_MASK
         ),
 
         /* Mask containing the COFB blocks to be updated. */

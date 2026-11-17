@@ -27,17 +27,22 @@
 /*******************************************************************************
  * Global Variables Definition
  ******************************************************************************/
+#define UART_START_SEC_VAR_CLEARED_UNSPECIFIED_NO_CACHEABLE
+#include "Uart_MemMap.h"
 
+uint8 lpuart6_Rx_Dma[UART_RX_DMA_MAX];
+uint8 lpuart6_Tx_Dma[UART_TX_DMA_MAX];
+
+#define UART_STOP_SEC_VAR_CLEARED_UNSPECIFIED_NO_CACHEABLE
+#include "Uart_MemMap.h"
 /*******************************************************************************
  * Static Local Variables
  ******************************************************************************/
 /* Vairables for Rx */
-static uint8_t lpuart6_Rx_Dma[UART_RX_DMA_MAX];
-static uint8_t Uart_Rx_FIFO[UART_RX_FIFO_MAX];
+static uint8 Uart_Rx_FIFO[UART_RX_FIFO_MAX];
 static Uart_FifoIdxType Uart_RxFifoIdx;
 /* Vairables for Tx */
-static uint8_t lpuart6_Tx_Dma[UART_TX_DMA_MAX];
-static uint8_t Uart_Tx_FIFO[UART_TX_FIFO_MAX];
+static uint8 Uart_Tx_FIFO[UART_TX_FIFO_MAX];
 static Uart_FifoIdxType Uart_TxFifoIdx;
 static boolean Uart_Flag_TxBusy = false;
 /*******************************************************************************
@@ -77,7 +82,7 @@ static boolean UART_RxFIFO_Is_Empty(void)
  * @return      E_OK:       Enqueue in success.
  *              E_NOT_OK:   Enqueue in failed as FIFO is full.
  */
-static Std_ReturnType UART_RxFIFO_Enqueue(uint8_t inByte)
+static Std_ReturnType UART_RxFIFO_Enqueue(uint8 inByte)
 {
     Std_ReturnType retVal = E_OK;
 
@@ -102,7 +107,7 @@ static Std_ReturnType UART_RxFIFO_Enqueue(uint8_t inByte)
  * @return      E_OK:       Dequeue in success.
  *              E_NOT_OK:   Dequeue in failed as FIFO is empty.
  */
-static Std_ReturnType UART_RxFIFO_Dequeue(uint8_t *outByte)
+static Std_ReturnType UART_RxFIFO_Dequeue(uint8 *outByte)
 {
     Std_ReturnType retVal = E_OK;
 
@@ -126,10 +131,10 @@ static Std_ReturnType UART_RxFIFO_Dequeue(uint8_t *outByte)
  * @param[out]  void
  * @return      void
  */
-static void UART_Rx_Data_Handler(uint32_t rxLen)
+static void UART_Rx_Data_Handler(uint32 rxLen)
 {
-    uint16_t idx = 0;
-    uint8_t getChar = 0;
+    uint16 idx = 0;
+    uint8 getChar = 0;
 
     /* Send back to Console. */
     UART_Write(lpuart6_Rx_Dma, rxLen);
@@ -186,7 +191,7 @@ static boolean UART_TxFIFO_Is_Empty(void)
  * @return      E_OK:       Enqueue in success.
  *              E_NOT_OK:   Enqueue in failed as FIFO is full.
  */
-static Std_ReturnType UART_TxFIFO_Enqueue(uint8_t inByte)
+static Std_ReturnType UART_TxFIFO_Enqueue(uint8 inByte)
 {
     Std_ReturnType retVal = E_OK;
 
@@ -211,7 +216,7 @@ static Std_ReturnType UART_TxFIFO_Enqueue(uint8_t inByte)
  * @return      E_OK:       Dequeue in success.
  *              E_NOT_OK:   Dequeue in failed as FIFO is empty.
  */
-static Std_ReturnType UART_TxFIFO_Dequeue(uint8_t *outByte)
+static Std_ReturnType UART_TxFIFO_Dequeue(uint8 *outByte)
 {
     Std_ReturnType retVal = E_OK;
 
@@ -237,8 +242,8 @@ static Std_ReturnType UART_TxFIFO_Dequeue(uint8_t *outByte)
  */
 static void UART_Tx_FIFO_Handler(void)
 {
-    uint16_t txLen = 0;
-    uint32_t dummy = 0;
+    uint16 txLen = 0;
+    uint32 dummy = 0;
 
     /* Check whether Uart-Tx is Busy. */
     if((UART_STATUS_OPERATION_ONGOING != Uart_GetStatus(UART_CHANNEL_6, &dummy, UART_SEND)))
@@ -251,15 +256,8 @@ static void UART_Tx_FIFO_Handler(void)
 
     if(txLen > 0)
     {
-        if (E_OK == Uart_AsyncSend(UART_CHANNEL_6, lpuart6_Tx_Dma, txLen))
-        {
-            Uart_Flag_TxBusy = true;
-        }
-        else
-        {
-            /* Drop if Send in failed. */
-        	Uart_Flag_TxBusy = false;
-        }
+        Uart_Flag_TxBusy = true;
+        (void)Uart_AsyncSend(UART_CHANNEL_6, lpuart6_Tx_Dma, txLen);
     }
 }
 
@@ -275,9 +273,9 @@ static void UART_Tx_FIFO_Handler(void)
  * @return      E_OK:       Send in success.
  *              E_NOT_OK:   Send in failed.
  */
-Std_ReturnType UART_Write(const uint8_t *txData, uint16_t len)
+Std_ReturnType UART_Write(const uint8 *txData, uint16 len)
 {
-    uint16_t idx;
+    uint16 idx;
     Std_ReturnType retVal = E_OK;
 
     /* Protection: Might be called by Task or RxCallback. */
@@ -302,9 +300,9 @@ Std_ReturnType UART_Write(const uint8_t *txData, uint16_t len)
  * @param[out]  void
  * @return      Number of bytes actually read (0 when the FIFO is empty).
  */
-uint16_t UART_Read(uint8_t *rxData, uint16_t maxLen)
+uint16 UART_Read(uint8 *rxData, uint16 maxLen)
 {
-    uint16_t readCnt = 0U;
+    uint16 readCnt = 0U;
 
     /* Rx-FIFO is written by the callback and read here, keep the read atomic. */
     OsIf_SuspendAllInterrupts();
@@ -327,10 +325,10 @@ uint16_t UART_Read(uint8_t *rxData, uint16_t maxLen)
  * @param[out]  void
  * @return      void
  */
-void LPUART_Rx_Callback(uint8 HwInstance, Uart_EventType Event)
+void LPUART_Event_Callback(uint8 HwInstance, Uart_EventType Event)
 {
-    uint32_t byteRemin = 0;
-    uint32_t byteRxLen = 0;
+    uint32 byteRemin = 0;
+    uint32 byteRxLen = 0;
 
     (void)HwInstance;
 

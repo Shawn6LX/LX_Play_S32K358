@@ -155,6 +155,10 @@ void Sysctrl_Init(void)
 
     Sysctrl_Icu_Init();
 
+    Mcl_Init(NULL_PTR);
+
+    Rm_Init(NULL_PTR);
+
     UART_Init();
 }
 

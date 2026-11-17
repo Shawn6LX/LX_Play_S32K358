@@ -88,7 +88,7 @@ extern "C"{
 #define LPUART_UART_IP_TIMEOUT_VALUE_US         (0U)
 
 /* @brief Lpuart DMA support */
-#define LPUART_UART_IP_HAS_DMA_ENABLED          (STD_OFF)
+#define LPUART_UART_IP_HAS_DMA_ENABLED          (STD_ON)
 
 /* @brief Support for Uart Timeout Interrupt. If this parameter has been configured to TRUE, the Uart driver will enable Timeout Interrupt. */
 #define LPUART_UART_IP_ENABLE_TIMEOUT_INTERRUPT  (STD_ON)

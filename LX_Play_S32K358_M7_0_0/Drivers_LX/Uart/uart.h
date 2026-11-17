@@ -39,8 +39,8 @@ extern "C" {
 /* Type of Ring-Buffer Index */
 typedef struct
 {
-    uint16_t head;      /* Index of output handling-data in buffer. */
-    uint16_t tail;      /* Index of input rx-data pushed in buffer. */
+    uint16 head;        /* Index of output handling-data in buffer. */
+    uint16 tail;        /* Index of input rx-data pushed in buffer. */
 } Uart_FifoIdxType;
 
 /*******************************************************************************
@@ -52,8 +52,8 @@ typedef struct
  ******************************************************************************/
 void UART_Init(void);
 void UART_MainFunction(void);
-Std_ReturnType UART_Write(const uint8_t *txData, uint16_t len);
-uint16_t UART_Read(uint8_t *rxData, uint16_t maxLen);
+Std_ReturnType UART_Write(const uint8 *txData, uint16 len);
+uint16 UART_Read(uint8 *rxData, uint16 maxLen);
 
 #ifdef __cplusplus
 }

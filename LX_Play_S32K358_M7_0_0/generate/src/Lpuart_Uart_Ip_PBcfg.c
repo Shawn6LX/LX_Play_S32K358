@@ -154,16 +154,16 @@ const Lpuart_Uart_Ip_UserConfigType Lpuart_Uart_Ip_xHwConfigPB_0 =
     /* Number of bits per transmitted/received word */
     LPUART_UART_IP_8_BITS_PER_CHAR,
     /* Type of UART transfer (interrupt/dma based) */
-    LPUART_UART_IP_USING_INTERRUPTS,
+    LPUART_UART_IP_USING_DMA,
     /* Callback to invoke for Uart Event.*/
     (Lpuart_Uart_Ip_CallbackType)&Uart_Ipw_LpuartCallback,
     /* User callback parameter pointer.*/
     NULL_PTR,
 #if (LPUART_UART_IP_HAS_DMA_ENABLED == STD_ON)
     /* DMA channel number for DMA-based rx. */
-    255,
+    DMA_LOGIC_CH_0,
     /* DMA channel number for DMA-based tx. */
-    255,
+    DMA_LOGIC_CH_1,
 #endif
     /* Runtime state structure refference */
     &Lpuart_Uart_Ip_apStateStructure[0U]

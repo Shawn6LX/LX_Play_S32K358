@@ -78,7 +78,7 @@ extern "C"{
 #define FLEXIO_UART_IP_DEV_ERROR_DETECT                 (STD_ON)
 
 /* @brief Flexio DMA support */
-#define FLEXIO_UART_IP_HAS_DMA_ENABLED                  (STD_OFF)
+#define FLEXIO_UART_IP_HAS_DMA_ENABLED                  (STD_ON)
 
 /* @brief Number of available shifter and timer */
 #define FLEXIO_UART_IP_NUMBER_OF_SHIFTER_AND_TIMER      (8U)
